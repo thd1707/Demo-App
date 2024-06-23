@@ -44,6 +44,13 @@
                                 <rect key="frame" x="177" y="496" width="28" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </colorWell>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEy-Ym-pmG">
+                                <rect key="frame" x="76" y="561" width="284" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -51,6 +58,7 @@
                     <connections>
                         <outlet property="btnSignalLight" destination="qHN-kv-Yza" id="jQf-F3-9ym"/>
                         <outlet property="colorWell" destination="Thi-fS-x5M" id="Xyc-tv-4RB"/>
+                        <outlet property="lblColor" destination="dEy-Ym-pmG" id="bWX-7h-tIb"/>
                         <outlet property="lblStatus" destination="nMs-0S-MFd" id="DKE-xb-Tgy"/>
                     </connections>
                 </viewController>

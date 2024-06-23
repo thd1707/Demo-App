@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var colorWell: UIColorWell!
     
+    
+    @IBOutlet weak var lblColor: UILabel!
     var isFlashing = false
     var flashTimer: Timer?
     var backgroundColor : UIColor = .white
@@ -30,6 +32,8 @@ class ViewController: UIViewController {
         btnSignalLight.setTitle("Bật xi nhan", for: .normal)
       
         colorWell.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
+        lblColor.text = "(Nhấp vào để thay đổi màu nền)"
+        lblColor.textColor = .lightGray
         
     }
     
