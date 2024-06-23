@@ -8,26 +8,29 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var lblStatus: UILabel!
     
     @IBOutlet weak var btnSignalLight: UIButton!
     
-    @IBAction func sliderChangeValue(_ sender: Any) {
+    @IBAction func sliderChangeValue(_ : Any) {
     }
     
+    @IBOutlet weak var colorWell: UIColorWell!
     
     var isFlashing = false
     var flashTimer: Timer?
+    var backgroundColor : UIColor = .white
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lblStatus.text = "Xi nhan đã tắt"
+        lblStatus.text = "  " + "Xi nhan đang tắt"
         lblStatus.textColor = .red
         btnSignalLight.setTitle("Bật xi nhan", for: .normal)
-        
       
+        colorWell.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
+        
     }
     
     @IBAction func btnFlicker(_ sender: UIButton) {
@@ -35,13 +38,15 @@ class ViewController: UIViewController {
         if isFlashing {
             startFlashing()
             btnSignalLight.setTitle("Tắt xi nhan", for: .normal)
-            lblStatus.text = "Xi nhan đang bật"
+            lblStatus.text = "  " + "Xi nhan đang BẬT"
             lblStatus.textColor = .green
+            lblStatus.backgroundColor = .blue
         } else {
             stopFlashing()
             btnSignalLight.setTitle("Bật xi nhan", for: .normal)
-            lblStatus.text = "Xi nhan đã tắt"
-            lblStatus.textColor = .red
+            lblStatus.text = "  " + "Xi nhan đang TẮT"
+            lblStatus.textColor = .yellow
+            lblStatus.backgroundColor = .red
         }
     }
     
@@ -53,16 +58,16 @@ class ViewController: UIViewController {
     }
     
     func startFlashing() {
-//        let interval = TimeInterval(sliderChangeValue.value)
-//        flashTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
-//            guard let self = self else { return }
-//            self.view.backgroundColor = (self.view.backgroundColor == .white) ? .black : .white
-//        }
+        
     }
     
     func stopFlashing() {
-        flashTimer?.invalidate()
-        flashTimer = nil
-        view.backgroundColor = .white
+    }
+    
+    
+    @objc func colorChanged(_ color: UIColor) {
+        if let selectedColor = colorWell.selectedColor {
+            self.view.backgroundColor = selectedColor
+        }
     }
 }
